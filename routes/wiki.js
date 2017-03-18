@@ -34,13 +34,13 @@ router.post('/add', function(req, res, next) {
   // make sure we only redirect *after* our save is complete!
   // note: `.save` returns a promise or it can take a callback.
   page.save().then( function(){
-    res.redirect('/');
+    // res.redirect('/');
+    res.json(req.body);
   });
 });
 
 router.get('/add', function(req, res, next) {
   res.render('addpage');
-  next();
 });
 
 module.exports = router;
